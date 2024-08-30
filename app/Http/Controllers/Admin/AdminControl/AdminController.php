@@ -17,7 +17,7 @@ class AdminController extends Controller
     public function update(Request $request, Admin $admin)
     {
         $data = $request->all();
-        dd(($data['rolesArray']));
+        // dd(($data['rolesArray']));
         // $role->update(['name' => $data['name']]);
         // $admin->syncRoles();
         // if (isset($data['rolesArray'])) {
@@ -29,13 +29,22 @@ class AdminController extends Controller
             // Sync roles if rolesArray is provided
     if (isset($data['rolesArray'])) {
         // Sync the roles, replacing existing roles with the new ones from rolesArray
-        foreach($data['rolesArray'] as $role)
-        $admin->syncRoles($role);
+        // foreach($data['rolesArray'] as $role => $val)
+        // {
+// dd($val , $role);
+            $admin->syncRoles($data['rolesArray']);
+            // $admin->syncRoles($role);
+        // }
     } else {
         // If no roles are provided, remove all roles
         $admin->syncRoles([]);
     }
            session()->flash('edit');
         return redirect()->route('admin.index');
+    }
+    public function destroy(Admin $admin){
+        $admin->delete();
+        session()->flash('edit');
+     return redirect()->route('admin.index');
     }
 }

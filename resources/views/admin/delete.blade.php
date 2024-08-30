@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard/sections_trans.delete_sections')}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard.delete_employee')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,11 +14,11 @@
                 {{ csrf_field() }}
             <div class="modal-body">
                 <input type="hidden" name="id" value="{{ $employee->id }}">
-                <h5>{{trans('Dashboard/sections_trans.Warning')}}</h5>
+                <h5>{{trans('Dashboard.Warning')}}</h5>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/sections_trans.Close')}}</button>
-                <button type="submit" class="btn btn-danger">{{trans('Dashboard/sections_trans.submit')}}</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard.Close')}}</button>
+                <button type="submit" class="btn btn-danger">{{trans('Dashboard.submit')}}</button>
             </div>
             </form>
         </div>

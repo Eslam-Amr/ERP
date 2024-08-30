@@ -14,7 +14,7 @@ class RoleController extends Controller
     {
 
         $groups = Permission::where('guard_name', 'admin')->get();
-      $roles = Role::where('guard_name','admin')->paginate(1);
+      $roles = Role::where('guard_name','admin')->paginate();
       return view('role.index',compact('roles','groups'));
     }
 
