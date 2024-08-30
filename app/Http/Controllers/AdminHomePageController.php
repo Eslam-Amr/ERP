@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class AdminHomePageController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
     public function __invoke($id)
     {
             if(view()->exists($id)){
@@ -20,4 +17,5 @@ class AdminController extends Controller
             }
 
          //   return view($id);
-        }    }
+        } 
+}

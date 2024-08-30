@@ -15,11 +15,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'role' => 'admin'
-        ]);
-        $this->call(UserSeeder::class);
+        User::updateOrCreate(
+            ['email' => 'test@test.com'], // Condition to check for an existing user
+            [
+                'name' => 'Test User',
+                'role' => 'admin'
+            ] // Data to update or create
+        );
+                $this->call(UserSeeder::class);
+        $this->call(PermissionSeeder::class);
     }
 }
