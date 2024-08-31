@@ -32,15 +32,22 @@
                                     </div> --}}
                                     <div class="col-md-6">
                                         <div class="form-check form-check-primary mt-1">
-                                            <input class="form-check-input"
+                                            <input class=" form-check-input"
                                                    type="checkbox"
                                                    name="rolesArray[]"
                                                    value="{{ $role->name }}"
                                                    id="formCheckcolor{{ $role->id }}"
                                                    @checked($employee->hasRole($role->name))>
-                                            <label class="form-check-label" for="formCheckcolor{{ $role->id }}">
-                                                {{ $role->name }}
-                                            </label>
+                                                   @if (app()->getLocale() == 'en')
+
+                                                   <label class="form-check-label" for="formCheckcolor{{ $role->id }}">
+                                                    {{ $role->name }}
+                                                </label>
+                                                @else
+                                                <label class="mx-3 form-check-label" for="formCheckcolor{{ $role->id }}">
+                                                 {{ $role->name }}
+                                             </label>
+                                                @endif
                                         </div>
                                     </div>
 

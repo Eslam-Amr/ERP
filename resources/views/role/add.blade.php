@@ -23,8 +23,13 @@
                                         <input class="form-check-input" type="checkbox"
                                             name="permissionArray[{{ $permission->name }}]"
                                             id="formCheckcolor{{ $permission->id }}">
-                                        <label class="form-check-label"
-                                            for="formCheckcolor{{ $permission->id }}">{{ $permission->name }}</label>
+                                            @if (app()->getLocale() == 'en')
+                                            <label class="form-check-label"
+                                                for="formCheckcolor{{ $permission->id }}">{{ $permission->name }}</label>
+                                                @else
+                                                <label class="mx-3 form-check-label"
+                                                    for="formCheckcolor{{ $permission->id }}">{{ $permission->name }}</label>
+@endif
                                     </div>
                                 </div>
                             @endforeach

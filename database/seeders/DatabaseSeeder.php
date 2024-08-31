@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +20,9 @@ class DatabaseSeeder extends Seeder
             ['email' => 'test@test.com'], // Condition to check for an existing user
             [
                 'name' => 'Test User',
-                'role' => 'admin'
+                'role' => 'admin',
+
+                'password' => Hash::make('password'),
             ] // Data to update or create
         );
                 $this->call(UserSeeder::class);

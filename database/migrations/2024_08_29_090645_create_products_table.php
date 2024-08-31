@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('model');
             $table->decimal('weight');
+            $table->decimal('price');
+            $table->decimal('discount')->min(0)->max(100)->default(0);
             $table->text('description');
             $table->integer('final_quantity');
             $table->timestamps();

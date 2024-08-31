@@ -13,6 +13,13 @@ return [
 ,'submit'=>'Submit'
 ,'role_name'=>'Role Name'
 ,'delete_employee'=>'Delete Employee'
-,'Warning'=>'Warning','delete_role'=>'Delete Role','roles'=>'Roles','edit_role'=>'Edit Role'
+,'Warning'=>'Warning','delete_role'=>'Delete Role','roles'=>'Roles','edit_role'=>'Edit Role',
+'add_product'=>'Add Product',
+'product_name'=>'Product Name',
+'product_model'=>'Product Model',
+'product_weight'=>'Product Weight',
+'product_price'=>'Product Price',
+'product_discount'=>'Product Discount',
+'product_description'=>'Product Description',
 // 'give_role'=>'Give Role'
 ];
