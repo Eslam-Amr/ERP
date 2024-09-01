@@ -30,7 +30,7 @@ return [
 'delete_product'=>'Delete Product',
 'update'=>'Update',
 'available_item' =>'Available Item',
-'back'=>'Back'
+'back'=>'Back','delete'=>'Delete'
 // 'edit_employee'=>'Edit Employee
 // 'give_role'=>'Give Role'
 ];

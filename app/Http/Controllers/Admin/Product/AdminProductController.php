@@ -53,7 +53,13 @@ class AdminProductController extends Controller
         return redirect()->back()->with(['success' => 'Product created successfully']);
     }
     public function show(Product $product){
-        return view('admin.show',get_defined_vars());
+        return view('product.show',get_defined_vars());
     }
+    public function destroy(Product $product){
+
+        $product->delete();
+        return redirect()->back()->with(['success' => 'Product deleted successfully']);
+    }
+
 
 }

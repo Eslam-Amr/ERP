@@ -94,59 +94,94 @@
             </button>
         </div>
     </div>
-    <div class="row row-sm">
+    {{-- <div class="row row-sm">
 
         @if (count($products) > 0)
 
-        @foreach ($products as $product)
-        <div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
-            <div class="card">
-                {{-- @if (permission('add_role')) --}}
+            @foreach ($products as $product)
+                <div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
+                    <div class="card">
 
-                {{-- @endif --}}
-                <a href="{{ route('product.show', $product) }}">
-                <div class="card-body">
+                        <a href="{{ route('product.show', $product) }}">
+                            <div class="card-body">
                                 <div class="pro-img-box">
-                                    {{-- <div class="d-flex product-sale">
-												<div class="badge bg-pink">New</div>
-												<i class="mdi mdi-heart-outline ml-auto wishlist"></i>
-											</div> --}}
-                                    {{-- <img class="w-100" src="{{ URL::asset('storage/products/' . $product->image) }}"
-                                        alt="product-image"> --}}
-                                    {{-- <a href="{{ route('admin.product.show', $product) }}" class="adtocart"> --}}
+                                    <img class="w-100" src="{{ URL::asset('storage/products/' . $product->image) }}"
+                                        alt="product-image">
+                                    <a href="{{ route('admin.product.show', $product) }}" class="adtocart">
                                         <i class="las la-shopping-cart "></i>
-                                    {{-- </a> --}}
+                                    </a>
                                 </div>
                                 <div class="text-center pt-3">
                                     <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase">{{ $product->name }}</h3>
-                                    {{-- <span class="tx-15 ml-auto">
-												<i class="ion ion-md-star text-warning"></i>
-												<i class="ion ion-md-star text-warning"></i>
-												<i class="ion ion-md-star text-warning"></i>
-												<i class="ion ion-md-star-half text-warning"></i>
-												<i class="ion ion-md-star-outline text-warning"></i>
-											</span> --}}
+
                                     <h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-danger">
-                                        {{-- <x-price-after-discount price="{{ $product->price }}"
-                                            discount="{{ $product->discount }}" />EGP <span
-                                            class="text-secondary font-weight-normal tx-13 ml-1 prev-price">{{ $product->price }}EGP</span> --}}
                                     </h4>
-                                            {{-- <x-show-hide-label :product="$product" /> --}}
+
 
                                 </div>
                             </div>
-                        </div>
                     </div>
+                </div>
                 </a>
-                {{-- @include('admin.edit')
-                @include('admin.delete') --}}
 
+                @include('admin.edit')
+                @include('admin.delete')
             @endforeach
         @endif
         {{ $products->links() }}
-        </div>
+    </div> --}}
+    <div class="row row-sm">
+        @if (count($products) > 0)
+            @foreach ($products as $product)
+                <div class="col-md-6 col-lg-6 col-xl-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <a href="{{ route('product.show', $product) }}">
+                            <div class="card-body">
+                                <div class="pro-img-box">
+                                    {{-- Add your image and wishlist icons here --}}
+                                    {{-- l7d ma ngeb soar  --}}
+                                    <img src="https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg" alt="">
+                                  <center>
 
-        @include('product.add')
+                                      <i class="las la-shopping-cart "></i>
+                                    </center>
+                                </div>
+                                <div class="text-center pt-3">
+                                    <h3 class="h6 mb-2 mt-4 font-weight-bold text-uppercase">{{ $product->name }}</h3>
+                                    {{-- Add your price and rating here --}}
+                                    <h4 class="h5 mb-0 mt-2 text-center font-weight-bold text-danger">
+                                        {{-- Display price after discount --}}
+                                    </h4>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="card-footer d-flex justify-content-between">
+                            <!-- Update Button -->
+                            <a href="" class="btn btn-primary btn-sm">
+                                <i class="las la-edit"></i> Update
+                            </a>
+
+                            <!-- Delete Button -->
+                            {{-- <form action="" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="las la-trash"></i> Delete
+                                </button>
+                            </form> --}}
+                            <a class="modal-effect btn btn-sm btn-danger" data-effect="effect-scale"  data-toggle="modal" href="#delete{{$product->id}}"><i class="las la-trash"></i>{{ __('Dashboard.delete') }}</a>
+
+                        </div>
+                    </div>
+                </div>
+                @include('product.delete')
+            @endforeach
+        @endif
+        {{ $products->links() }}
+    </div>
+
+
+    @include('product.add')
     <!-- main-content closed -->
 @endsection
 @section('js')

@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="delete{{ $role->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="delete{{ $product->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -9,11 +9,11 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="{{ route('role.destroy',$role) }}" method="post">
+            <form action="{{ route('product.destroy',$product) }}" method="post">
                 {{ method_field('delete') }}
                 {{ csrf_field() }}
             <div class="modal-body">
-                <input type="hidden" name="id" value="{{ $role->id }}">
+                <input type="hidden" name="id" value="{{ $product->id }}">
                 <h5>{{trans('Dashboard.Warning')}}</h5>
             </div>
             <div class="modal-footer">

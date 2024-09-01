@@ -65,9 +65,13 @@
                     <div class="row row-sm ">
                         <div class=" col-xl-5 col-lg-12 col-md-12">
                             <div class="preview-pic tab-content">
+                                    {{-- l7d ma ngeb soar  --}}
+                                    <img src="https://photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg" alt="">
+                                 
                                 {{-- <div class="tab-pane active" id="pic-1"><img
                                         src="{{ URL::asset('storage/products/' . $product->image) }}" alt="image" />
                                 </div> --}}
+
                             </div>
 
                         </div>
