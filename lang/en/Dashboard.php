@@ -20,6 +20,17 @@ return [
 'product_weight'=>'Product Weight',
 'product_price'=>'Product Price',
 'product_discount'=>'Product Discount',
-'product_description'=>'Product Description',
+'product_description'=>'Product Description'
+,'product'=>'Product'
+,'show_product'=>'Show Product',
+'product_price_after_discount'=>'Price After Discount',
+'color'=>'Color',
+'quantity'=>'Quantity',
+'edit_product'=>'Edit Product',
+'delete_product'=>'Delete Product',
+'update'=>'Update',
+'available_item' =>'Available Item',
+'back'=>'Back'
+// 'edit_employee'=>'Edit Employee
 // 'give_role'=>'Give Role'
 ];

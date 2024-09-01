@@ -230,26 +230,26 @@
         addFieldBtn.addEventListener('click', addFields);
 
       // Form validation on submit
-    //   form.addEventListener('submit', function (event) {
-    //     // Check if any required field is empty
-    //     const inputs = form.querySelectorAll('input, textarea'); // Select all input and textarea elements
-    //     let isValid = true;
+      form.addEventListener('submit', function (event) {
+        // Check if any required field is empty
+        const inputs = form.querySelectorAll('input, textarea'); // Select all input and textarea elements
+        let isValid = true;
 
-    //     inputs.forEach((input) => {
-    //         // Check if input is empty
-    //         if (!input.value.trim()) {
-    //             isValid = false;
-    //             input.classList.add('is-invalid'); // Add Bootstrap invalid class for styling
-    //         } else {
-    //             input.classList.remove('is-invalid');
-    //         }
-    //     });
+        inputs.forEach((input) => {
+            // Check if input is empty
+            if (!input.value.trim()) {
+                isValid = false;
+                input.classList.add('is-invalid'); // Add Bootstrap invalid class for styling
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
 
-    //     // If form is not valid, prevent submission
-    //     if (!isValid) {
-    //         event.preventDefault();
-    //         alert('Please fill in all required fields.');
-    //     }
-    // });
+        // If form is not valid, prevent submission
+        if (!isValid) {
+            event.preventDefault();
+            alert('Please fill in all required fields.');
+        }
+    });
 });
     </script>

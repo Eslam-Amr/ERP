@@ -18,7 +18,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard.roles') }}</h4><span
+                <h4 class="content-title mb-0 my-auto">{{ trans('Dashboard.product') }}</h4><span
                     class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{ trans('Dashboard.view_all') }}</span>
             </div>
         </div>
@@ -90,22 +90,22 @@
     <div class="my-3 pb-0">
         <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
-                {{ trans('Dashboard.add_role') }}
+                {{ trans('Dashboard.add_product') }}
             </button>
         </div>
     </div>
     <div class="row row-sm">
-        {{-- <a href="{{ route('admin.product.show', $product) }}"> --}}
 
-            @if (count($products) > 0)
+        @if (count($products) > 0)
 
-                @foreach ($products as $product)
-                    <div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
-                        <div class="card">
-                            {{-- @if (permission('add_role')) --}}
+        @foreach ($products as $product)
+        <div class="col-md-6 col-lg-6 col-xl-4  col-sm-6">
+            <div class="card">
+                {{-- @if (permission('add_role')) --}}
 
                 {{-- @endif --}}
-                            <div class="card-body">
+                <a href="{{ route('product.show', $product) }}">
+                <div class="card-body">
                                 <div class="pro-img-box">
                                     {{-- <div class="d-flex product-sale">
 												<div class="badge bg-pink">New</div>
@@ -137,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                {{-- </a> --}}
+                </a>
                 {{-- @include('admin.edit')
                 @include('admin.delete') --}}
 

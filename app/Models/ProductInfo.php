@@ -11,4 +11,9 @@ class ProductInfo extends Model
     public function product(){
         return $this->belongsTo(Product::class);
     }
+    protected $fillable=[
+'product_id',
+'color',
+'quantity',
+    ];
 }

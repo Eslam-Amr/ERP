@@ -12,4 +12,13 @@ class Product extends Model
         return $this->hasMany(ProductInfo::class);
 
     }
+    protected $fillable=[
+'name',
+'model',
+'weight',
+'price',
+'discount',
+'description',
+'final_quantity',
+    ];
 }

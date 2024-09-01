@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAdminProductRequest;
 use App\Models\Product;
+use App\Models\ProductInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 class AdminProductController extends Controller
 {
 
@@ -19,34 +21,39 @@ class AdminProductController extends Controller
     // public function store(Request $request)
     public function store(StoreAdminProductRequest $request)
     {
-        $validator = Validator::make($request->all(), $request->rules(), $request->messages());
+        $data = $request->validated();
 
-        // Check if validation fails
-        if ($validator->fails()) {
-            // Aggregate errors into a single message
-            $errors = $validator->errors()->getMessages();
-            $errorMessages = [];
+        // Calculate the sum of quantities directly from the validated data, with a fallback to an empty array
+        $quantities = $data['quantities'] ?? [];
+        $sumOfQuantities = array_sum($quantities);
 
-            foreach ($errors as $field => $messages) {
-                $errorMessages[] = $messages[0];
-            }
+        // Create the product record with the validated data and calculated final quantity
+        $product = Product::create([
+            'name' => $data['name'],
+            'model' => $data['model'],
+            'weight' => $data['weight'],
+            'price' => $data['price'],
+            'discount' => $data['discount'],
+            'description' => $data['description'],
+            'final_quantity' => $sumOfQuantities,
+        ]);
 
-            $errorMessage = implode(' ', $errorMessages);
+        // Prepare data for bulk insertion into ProductInfo
+        $productInfoData = array_map(function ($color, $quantity) use ($product) {
+            return [
+                'product_id' => $product->id,
+                'color' => $color,
+                'quantity' => $quantity,
+            ];
+        }, $data['colors'], $data['quantities']);
 
-            // Redirect back with the aggregated error message
-            return redirect()->back()->withErrors([$errorMessage])->withInput();
-        }
-          // Dump all request data
-    dd($request->validated());
+        // Bulk insert product information data to minimize database calls
+        ProductInfo::insert($productInfoData);
 
-    // Calculate the sum of quantities
-    $quantities = $request->input('quantities', []);
-    $sumOfQuantities = array_sum($quantities);
-
-    // Dump the sum of quantities along with request data
-    dd($request->all(), $sumOfQuantities);
-    $product = Product::create([
-        ''
-    ]);
+        return redirect()->back()->with(['success' => 'Product created successfully']);
     }
+    public function show(Product $product){
+        return view('admin.show',get_defined_vars());
+    }
+
 }
