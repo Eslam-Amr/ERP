@@ -13,8 +13,12 @@
                 <div class="modal-body">
                     <label for="exampleInputPassword1">{{ trans('Dashboard.product_name') }}</label>
                     <input type="text" name="name" class="form-control">
+                    <label for="exampleInputPassword1">{{ trans('Dashboard.product_name_ar') }}</label>
+                    <input type="text" name="name_ar" class="form-control">
                     <label for="exampleInputPassword1">{{ trans('Dashboard.product_model') }}</label>
                     <input type="text" name="model" class="form-control">
+                    <label for="exampleInputPassword1">{{ trans('Dashboard.product_model_ar') }}</label>
+                    <input type="text" name="model_ar" class="form-control">
                     <label for="exampleInputPassword1">{{ trans('Dashboard.product_weight') }}</label>
                     <input type="number" name="weight" class="form-control">
                     <label for="exampleInputPassword1">{{ trans('Dashboard.product_price') }}</label>
@@ -24,8 +28,12 @@
                     <label for="exampleInputPassword1">{{ trans('Dashboard.product_description') }}</label>
                     {{-- <input type="text" name="description" class="form-control"> --}}
                     <div>
-
                         <textarea name="description" id="" cols="64" rows="10"></textarea>
+                    </div>
+                    <label for="exampleInputPassword1">{{ trans('Dashboard.product_description_ar') }}</label>
+                    {{-- <input type="text" name="description_ar" class="form-control"> --}}
+                    <div>
+                        <textarea name="description_ar" id="" cols="64" rows="10"></textarea>
                     </div>
                     {{-- <div class="col-md-6">
                         <label for="color0">Color</label>
@@ -201,10 +209,22 @@
             newFields.classList.add('row', 'mt-3');
 
             // Color input
-            const colorField = `
+            // const colorField = `
+            //     <div class="col-md-6">
+            //         <label for="color${fieldCount}">Color</label>
+            //         <input type="text" name="colors[]" class="form-control" placeholder="Enter color" >
+            //     </div>
+            // `;
+            const colorFieldAr = `
                 <div class="col-md-6">
-                    <label for="color${fieldCount}">Color</label>
-                    <input type="text" name="colors[]" class="form-control" placeholder="Enter color" >
+                    <label for="color${fieldCount}">Color Ar</label>
+                    <input type="text" name="colorsAr[]" class="form-control" placeholder="Enter color" >
+                </div>
+            `;
+            const colorFieldEn = `
+                <div class="col-md-6">
+                    <label for="color${fieldCount}">Color En</label>
+                    <input type="text" name="colorsEn[]" class="form-control" placeholder="Enter color" >
                 </div>
             `;
 
@@ -217,7 +237,7 @@
             `;
 
             // Append color and quantity fields to the newFields div
-            newFields.innerHTML = colorField + quantityField;
+            newFields.innerHTML = colorFieldEn + colorFieldAr + quantityField;
 
             // Append the newFields div to the dynamic fields container
             dynamicFieldsContainer.appendChild(newFields);

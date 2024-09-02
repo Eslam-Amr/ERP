@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RoleRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -12,8 +13,18 @@ class RoleController extends Controller
 {
     public function index()
     {
+        // $locale = App::getLocale();
 
-        $groups = Permission::where('guard_name', 'admin')->get();
+        // $groups = Permission::where('guard_name', 'admin')->get();
+
+        // foreach ($groups as $group) {
+        //     $group->name = $group->getTranslation('name', $locale);
+        // }
+        if(App::getLocale() =='en')
+        $groups = Permission::select('name_en as name' , 'id')->where('guard_name', 'admin')->get();
+        else
+        $groups = Permission::select('name_ar as name' , 'id')->where('guard_name', 'admin')->get();
+        // dd($groups);
       $roles = Role::where('guard_name','admin')->paginate();
       return view('role.index',compact('roles','groups'));
     }

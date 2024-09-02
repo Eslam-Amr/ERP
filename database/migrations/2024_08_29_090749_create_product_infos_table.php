@@ -11,11 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Schema::create('product_infos', function (Blueprint $table) {
+        //     $table->id();
+
+        //     $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
+        //   $table->string('color');
+        //   $table->integer('quantity');
+        //     $table->timestamps();
+        // });
         Schema::create('product_infos', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('product_id')->references('id')->on('products')->cascadeOnDelete()->cascadeOnUpdate();
-          $table->string('color');
+          $table->string('color_en');
+          $table->string('color_ar');
           $table->integer('quantity');
             $table->timestamps();
         });

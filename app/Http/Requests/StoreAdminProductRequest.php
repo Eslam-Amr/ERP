@@ -24,16 +24,21 @@ class StoreAdminProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-'name'=>'required|unique:products,name',
+'name'=>'required|unique:product_translations,name',
 'model'=>'required',
+'description'=>'required',
+'name_ar'=>'required|unique:product_translations,name',
+'model_ar'=>'required',
+'description_ar'=>'required',
 'weight'=>'required|numeric',
 'price'=>'required|numeric',
 'discount'=>'required|numeric',
-'description'=>'required',
-'colors' => 'required|array|min:1', // Ensure color is an array and has at least 1 item
+'colorsAr' => 'required|array|min:1', // Ensure color is an array and has at least 1 item
+'colorsEn' => 'required|array|min:1', // Ensure color is an array and has at least 1 item
 'quantities' => 'required|array|min:1', // Ensure quantity is an array and has at least 1 item
 
-'colors.*'=>'required',
+'colorsAr.*'=>'required',
+'colorsEn.*'=>'required',
 'quantities.*'=>'required'
         ];
     }
@@ -90,6 +95,6 @@ class StoreAdminProductRequest extends FormRequest
         //     'errors' => array_unique($aggregatedMessages)
         // ], 422));
         throw new ValidationException($validator, redirect()->back()->withInput()->withErrors(array_unique($aggregatedMessages)));
-   
+
     }
 }

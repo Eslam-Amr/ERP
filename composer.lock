@@ -4,8 +4,101 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d434193bc2e5baa22e3d826739645aef",
+    "content-hash": "f96e1b70e4ee1eff2640d9cc353d6830",
     "packages": [
+        {
+            "name": "astrotomic/laravel-translatable",
+            "version": "v11.15.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Astrotomic/laravel-translatable.git",
+                "reference": "0d065da7fb06b4b957afce79fdda159764561345"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Astrotomic/laravel-translatable/zipball/0d065da7fb06b4b957afce79fdda159764561345",
+                "reference": "0d065da7fb06b4b957afce79fdda159764561345",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0 || ^10.0 || ^11.0",
+                "illuminate/database": "^9.0 || ^10.0 || ^11.0",
+                "illuminate/support": "^9.0 || ^10.0 || ^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^2.0",
+                "laravel/legacy-factories": "^1.0.4",
+                "laravel/pint": "^1.0",
+                "mockery/mockery": "^1.3.3",
+                "orchestra/testbench": "^7.0 || ^8.0 || ^9.0",
+                "phpunit/phpunit": "^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Astrotomic\\Translatable\\TranslatableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Astrotomic\\Translatable\\": "src/Translatable/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tom Witkowski",
+                    "email": "gummibeer@astrotomic.info",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Dimitrios Savvopoulos",
+                    "email": "ds@dimsav.com",
+                    "homepage": "http://dimsav.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel package for multilingual models",
+            "homepage": "https://astrotomic.info",
+            "keywords": [
+                "database",
+                "language",
+                "laravel",
+                "translation"
+            ],
+            "support": {
+                "docs": "https://docs.astrotomic.info/laravel-translatable",
+                "email": "dev@astrotomic.info",
+                "issues": "https://github.com/Astrotomic/laravel-translatable/issues",
+                "source": "https://github.com/Astrotomic/laravel-translatable"
+            },
+            "funding": [
+                {
+                    "url": "https://forest.astrotomic.info",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/Gummibeer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/SarahSibert",
+                    "type": "github"
+                },
+                {
+                    "url": "https://issuehunt.io/r/astrotomic",
+                    "type": "issuehunt"
+                }
+            ],
+            "time": "2024-08-28T09:20:26+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.1",
@@ -3186,6 +3279,66 @@
             "time": "2024-04-27T21:32:50+00:00"
         },
         {
+            "name": "spatie/laravel-package-tools",
+            "version": "1.16.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-package-tools.git",
+                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.28|^10.0|^11.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "orchestra/testbench": "^7.7|^8.0",
+                "pestphp/pest": "^1.22",
+                "phpunit/phpunit": "^9.5.24",
+                "spatie/pest-plugin-test-time": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\LaravelPackageTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Tools for creating Laravel packages",
+            "homepage": "https://github.com/spatie/laravel-package-tools",
+            "keywords": [
+                "laravel-package-tools",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-package-tools/issues",
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-08-27T18:56:10+00:00"
+        },
+        {
             "name": "spatie/laravel-permission",
             "version": "6.9.0",
             "source": {
@@ -3266,6 +3419,88 @@
                 }
             ],
             "time": "2024-06-22T23:04:52+00:00"
+        },
+        {
+            "name": "spatie/laravel-translatable",
+            "version": "6.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-translatable.git",
+                "reference": "0ef7e8e9d65bb834b7c68f22ec362a6179f50381"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-translatable/zipball/0ef7e8e9d65bb834b7c68f22ec362a6179f50381",
+                "reference": "0ef7e8e9d65bb834b7c68f22ec362a6179f50381",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^9.0|^10.0|^11.0",
+                "illuminate/support": "^9.0|^10.0|^11.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.11"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^7.0|^8.0|^9.0",
+                "pestphp/pest": "^1.20|^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Translatable\\TranslatableServiceProvider"
+                    ]
+                },
+                "aliases": {
+                    "Translatable": "Spatie\\Translatable\\Facades\\Translatable"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Translatable\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A trait to make an Eloquent model hold translations",
+            "homepage": "https://github.com/spatie/laravel-translatable",
+            "keywords": [
+                "eloquent",
+                "i8n",
+                "laravel-translatable",
+                "model",
+                "multilingual",
+                "spatie",
+                "translate"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-translatable/issues",
+                "source": "https://github.com/spatie/laravel-translatable/tree/6.8.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-24T14:26:27+00:00"
         },
         {
             "name": "symfony/clock",

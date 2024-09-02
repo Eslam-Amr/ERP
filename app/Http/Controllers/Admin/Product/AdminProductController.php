@@ -29,23 +29,36 @@ class AdminProductController extends Controller
 
         // Create the product record with the validated data and calculated final quantity
         $product = Product::create([
-            'name' => $data['name'],
-            'model' => $data['model'],
             'weight' => $data['weight'],
             'price' => $data['price'],
             'discount' => $data['discount'],
-            'description' => $data['description'],
-            'final_quantity' => $sumOfQuantities,
-        ]);
+            'final_quantity' => $sumOfQuantities
+            // 'en'=>[
 
+            //     'name' => $data['name'],
+            //     'model' => $data['model'],
+            //     'description' => $data['description'],
+            // ]
+        ]);
+        $product->translateOrNew('en')->fill([
+            'name' => $data['name'],
+            'model' => $data['model'],
+            'description' => $data['description'],
+        ])->save();
+        $product->translateOrNew('ar')->fill([
+            'name' => $data['name_ar'],
+            'model' => $data['model_ar'],
+            'description' => $data['description_ar'],
+        ])->save();
         // Prepare data for bulk insertion into ProductInfo
-        $productInfoData = array_map(function ($color, $quantity) use ($product) {
+        $productInfoData = array_map(function ($colorEn,$colorAr, $quantity) use ($product) {
             return [
                 'product_id' => $product->id,
-                'color' => $color,
+                'color_en' => $colorEn,
+                'color_ar' => $colorAr,
                 'quantity' => $quantity,
             ];
-        }, $data['colors'], $data['quantities']);
+        }, $data['colorsEn'],$data['colorsAr'], $data['quantities']);
 
         // Bulk insert product information data to minimize database calls
         ProductInfo::insert($productInfoData);
