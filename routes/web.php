@@ -37,6 +37,9 @@ Route::group(
 Route::resource('/role', RoleController::class)->except(['create', 'edit']);
 Route::resource('/admin', AdminController::class)->except(['create', 'edit']);
 Route::resource('/product', AdminProductController::class)->except(['create', 'edit']);
+<<<<<<< HEAD
+>>>>>>> 1f1078471eec581ce5f6eba5e08db3558831f75a
+=======
 >>>>>>> 1f1078471eec581ce5f6eba5e08db3558831f75a
 
         Route::middleware('auth')->group(function () {
