@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    {{trans('Dashboard/main-sidebar_trans.sections')}}
+    {{trans('Dashboard.roles')}}
 @stop
 @section('css')
     <!-- Internal Data table css -->
@@ -18,7 +18,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<h4 class="content-title mb-0 my-auto">{{trans('Dashboard/main-sidebar_trans.sections')}}</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{trans('Dashboard/main-sidebar_trans.view_all')}}</span>
+							<h4 class="content-title mb-0 my-auto">{{trans('Dashboard.roles')}}</h4><span class="text-muted mt-1 tx-13 mr-2 mb-0">/ {{trans('Dashboard.view_all')}}</span>
 						</div>
 					</div>
 				</div>
@@ -31,25 +31,25 @@
                     <div class="row row-sm">
                         <div class="col-xl-12">
                             <div class="card">
-                                @if (permission('add_role'))
+                                {{-- @if (permission('add_role')) --}}
 
                                 <div class="card-header pb-0">
                                     <div class="d-flex justify-content-between">
                                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add">
-                                            {{trans('Dashboard/sections_trans.add_sections')}}
+                                            {{trans('Dashboard.add_role')}}
                                         </button>
                                     </div>
                                 </div>
-                                @endif
+                                {{-- @endif --}}
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table text-md-nowrap" id="example2">
                                             <thead>
                                             <tr>
                                                 <th class="wd-15p border-bottom-0">#</th>
-                                                <th class="wd-15p border-bottom-0">{{trans('Dashboard/sections_trans.name_sections')}}</th>
+                                                <th class="wd-15p border-bottom-0">{{trans('Dashboard.role_name')}}</th>
                                                 {{-- <th class="wd-20p border-bottom-0">{{trans('Dashboard/sections_trans.created_at')}}</th> --}}
-                                                <th class="wd-20p border-bottom-0">{{trans('Dashboard/sections_trans.Processes')}}</th>
+                                                <th class="wd-20p border-bottom-0">{{trans('Dashboard.processes')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>

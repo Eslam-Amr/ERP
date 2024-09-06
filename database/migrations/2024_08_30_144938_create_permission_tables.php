@@ -25,13 +25,35 @@ return new class extends Migration
         }
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
-            //$table->engine('InnoDB');
-            $table->bigIncrements('id'); // permission id
-            $table->string('name');       // For MyISAM use string('name', 225); // (or 166 for InnoDB with Redundant/Compact row format)
-            $table->string('guard_name'); // For MyISAM use string('guard_name', 25);
+            // //$table->engine('InnoDB');
+            // $table->bigIncrements('id'); // permission id
+            // // $table->string('name');
+            // $table->json('name');
+            //        // For MyISAM use string('name', 225); // (or 166 for InnoDB with Redundant/Compact row format)
+            // $table->string('guard_name'); // For MyISAM use string('guard_name', 25);
+            // $table->timestamps();
+
+            // $table->unique(['name', 'guard_name']);
+            // $table->bigIncrements('id');
+            // $table->json('name'); // JSON column for translations
+            // $table->string('guard_name');
+            // $table->timestamps();
+
+            // // Add generated columns
+            // $table->string('name_en')->virtualAs("JSON_UNQUOTE(JSON_EXTRACT(name, '$.en'))");
+            // $table->string('name_ar')->virtualAs("JSON_UNQUOTE(JSON_EXTRACT(name, '$.ar'))");
+
+            // // Create unique index on the generated columns
+            // $table->unique(['name_en', 'guard_name']);
+
+            $table->bigIncrements('id');
+            $table->string('name_en'); // English name
+            $table->string('name_ar'); // Arabic name
+            $table->string('guard_name');
             $table->timestamps();
 
-            $table->unique(['name', 'guard_name']);
+            $table->unique(['name_en', 'guard_name']);
+
         });
 
         Schema::create($tableNames['roles'], function (Blueprint $table) use ($teams, $columnNames) {

@@ -3,7 +3,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard/sections_trans.add_sections')}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard.add_role')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,7 +11,7 @@
             <form action="{{ route('role.store') }}" method="post" autocomplete="off">
                 @csrf
                 <div class="modal-body">
-                    <label for="exampleInputPassword1">{{trans('Dashboard/sections_trans.name_sections')}}</label>
+                    <label for="exampleInputPassword1">{{trans('Dashboard.role_name')}}</label>
                     <input type="text" name="name" class="form-control">
                 </div>
                 <div class="form-group col-12 mt-2">
@@ -23,8 +23,13 @@
                                         <input class="form-check-input" type="checkbox"
                                             name="permissionArray[{{ $permission->name }}]"
                                             id="formCheckcolor{{ $permission->id }}">
-                                        <label class="form-check-label"
-                                            for="formCheckcolor{{ $permission->id }}">{{ $permission->name }}</label>
+                                            @if (app()->getLocale() == 'en')
+                                            <label class="form-check-label"
+                                                for="formCheckcolor{{ $permission->id }}">{{ $permission->name }}</label>
+                                                @else
+                                                <label class="mx-3 form-check-label"
+                                                    for="formCheckcolor{{ $permission->id }}">{{ $permission->name }}</label>
+@endif
                                     </div>
                                 </div>
                             @endforeach
@@ -33,8 +38,8 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/sections_trans.Close')}}</button>
-                    <button type="submit" class="btn btn-primary">{{trans('Dashboard/sections_trans.submit')}}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard.Close')}}</button>
+                    <button type="submit" class="btn btn-primary">{{trans('Dashboard.submit')}}</button>
                 </div>
             </form>
         </div>

@@ -4,7 +4,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard/sections_trans.edit_sections')}}</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{trans('Dashboard.give_role')}}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -21,7 +21,7 @@
                         <div class="row">
                             @if (count($roles) > 0)
                                 @foreach ($roles as $role)
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="form-check form-check-primary mt-1">
                                             <input class="form-check-input" type="checkbox"
                                                 name="rolesArray[{{ $role->name }}]"
@@ -29,15 +29,36 @@
                                             <label class="form-check-label"
                                                 for="formCheckcolor{{ $role->id }}">{{ $role->name }}</label>
                                         </div>
+                                    </div> --}}
+                                    <div class="col-md-6">
+                                        <div class="form-check form-check-primary mt-1">
+                                            <input class=" form-check-input"
+                                                   type="checkbox"
+                                                   name="rolesArray[]"
+                                                   value="{{ $role->name }}"
+                                                   id="formCheckcolor{{ $role->id }}"
+                                                   @checked($employee->hasRole($role->name))>
+                                                   @if (app()->getLocale() == 'en')
+
+                                                   <label class="form-check-label" for="formCheckcolor{{ $role->id }}">
+                                                    {{ $role->name }}
+                                                </label>
+                                                @else
+                                                <label class="mx-3 form-check-label" for="formCheckcolor{{ $role->id }}">
+                                                 {{ $role->name }}
+                                             </label>
+                                                @endif
+                                        </div>
                                     </div>
+
                                 @endforeach
                             @endif
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard/sections_trans.Close')}}</button>
-                    <button type="submit" class="btn btn-primary">{{trans('Dashboard/sections_trans.submit')}}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('Dashboard.Close')}}</button>
+                    <button type="submit" class="btn btn-primary">{{trans('Dashboard.submit')}}</button>
                 </div>
             </form>
         </div>
